@@ -11,6 +11,7 @@
   --border-header-color: #ececec;
   --botder-list-text: #eeeeee;
   --social-color: #afb1b8;
+  --modal-form-color: rgba(33, 33, 33, 0.2);
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Тело */
@@ -485,7 +486,7 @@ button[type='button']:hover,
 }
 /* Подписка на рассылку */
 .subscription-newsletter {
-  margin-left: 93px;
+  margin-left: auto;
 }
 .subscription-newsletter-text {
   font-style: normal;
@@ -511,6 +512,9 @@ button[type='button']:hover,
   box-sizing: border-box;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
+input[type='text']::placeholder {
+  color: var(--footer-contacts-color);
+}
 [placeholder='E-mail'] {
   padding-left: 16px;
 }
@@ -534,6 +538,7 @@ button[type='button']:hover,
   color: var(--white-color);
   background-color: var(--accent-color);
   border-radius: 4px;
+  transition: background-color 250ms var(--timing-function);
 }
 .subscription-newsletter-button:hover {
   background-color: var(--button-hover-blue);
@@ -595,12 +600,159 @@ button[type='button']:hover,
   left: 50%;
   transform: translate(-50%, -50%);
   width: 528px;
-  height: 581px;
   background-color: var(--white-color);
   transition: transform 250ms var(--timing-function);
 }
-/* Модальное окно конец*/
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 448px;
+}
+.modal-tittle {
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-top: 40px;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.field-form + .field-form {
+  margin-top: 10px;
+}
+.field-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.label-title {
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--grey-text-color);
+}
+.input {
+  padding-left: 42px;
+  color: inherit;
+  height: 40px;
+  width: 100%;
+  border: 1px solid var(--modal-form-color);
 
+  border-radius: 4px;
+}
+.input-icon-box {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  top: 11px;
+  left: 12px;
+}
+.input:focus,
+.input:hover {
+  outline: none;
+  border: 1px solid var(--accent-color);
+  cursor: pointer;
+}
+.label-title:focus,
+.label-title:hover {
+  cursor: pointer;
+}
+.input:focus + .input-icon {
+  fill: var(--accent-color);
+}
+.text-comment:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+.text-comment {
+  color: #000;
+  padding: 12px 16px;
+  resize: none;
+  height: 120px;
+  border: 1px solid var(--modal-form-color);
+  border-radius: 4px;
+}
+.text-comment::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+.field-form.checkbox-field {
+  position: relative;
+  margin-top: 20px;
+}
+.checkbox-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox-agree {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.checkbox-agree:checked + .checkbox-image {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.checkbox-image {
+  margin-right: 8.38px;
+  border: 2px solid var(--black-text-color);
+  border-radius: 2px;
+}
+/* .checkbox-image {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 9px;
+  background-color: var(--white-color);
+  border: 2px solid var(--black-text-color);
+  border-radius: 1px;
+} */
+
+.box-agree-text {
+  display: block;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--grey-text-color);
+}
+.box-agree-link {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+.checkbox-agree {
+}
+
+.modal-button-send {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 200px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+}
 .button-close {
   position: absolute;
   top: 0;
@@ -614,11 +766,18 @@ button[type='button']:hover,
   background-color: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.modal-close {
+.button-close:hover .button-image-close,
+.button-close:focus .button-image-close {
+  fill: var(--accent-color);
+  cursor: pointer;
+}
+.button-image-close {
   width: 100%;
   height: 100%;
 }
-.button-h1-section {
+/* Модальное окно конец*/
+
+.button-h1-section.btn-hover {
   display: inline-block;
   background-color: var(--accent-color);
   font-weight: 700;
@@ -635,10 +794,11 @@ button[type='button']:hover,
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button-h1-section:hover,
-.button-h1-section:focus {
+.btn-hover:hover,
+.btn-hover:focus {
   background-color: var(--button-hover-blue);
   color: var(--white-color);
+  cursor: pointer;
 }
 
 /* Наши преимущества */
