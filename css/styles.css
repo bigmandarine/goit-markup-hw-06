@@ -712,6 +712,9 @@ input[type='text']::placeholder {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
+.checkbox-agree:focus + .checkbox-image {
+  border-color: var(--accent-color);
+}
 .checkbox-image {
   margin-right: 8.38px;
   border: 2px solid var(--black-text-color);
