@@ -599,16 +599,20 @@ input[type='text']::placeholder {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 528px;
+  max-width: 528px;
+  padding: 40px;
   background-color: var(--white-color);
   transition: transform 250ms var(--timing-function);
 }
+.modal-table {
+  max-width: 100%;
+  margin-top: 12px;
+}
 .form {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  margin-top: 12px;
-  margin-left: 40px;
-  margin-right: 40px;
+
   width: 448px;
 }
 .modal-tittle {
@@ -617,9 +621,8 @@ input[type='text']::placeholder {
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
-  margin-top: 40px;
-  margin-bottom: 0;
-  text-align: center;
+  margin: 0;
+
   letter-spacing: 0.03em;
 }
 .field-form + .field-form {
@@ -637,7 +640,12 @@ input[type='text']::placeholder {
   letter-spacing: 0.01em;
   color: var(--grey-text-color);
 }
+.input-icon-box {
+  position: relative;
+  width: 448px;
+}
 .input {
+  display: block;
   padding-left: 42px;
   color: inherit;
   height: 40px;
@@ -646,9 +654,7 @@ input[type='text']::placeholder {
   transition: border 250ms var(--timing-function);
   border-radius: 4px;
 }
-.input-icon-box {
-  position: relative;
-}
+
 .input-icon {
   position: absolute;
   top: 11px;
@@ -743,7 +749,6 @@ input[type='text']::placeholder {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-  margin-bottom: 40px;
   width: 200px;
   background-color: var(--accent-color);
   color: var(--white-color);
